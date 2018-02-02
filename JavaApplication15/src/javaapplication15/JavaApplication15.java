@@ -118,21 +118,32 @@ public class JavaApplication15 {
                             }
 
                             if (opcion1.equalsIgnoreCase("b")) {
-                                String lugar, descripcion, tipo, detec, nombre, descripcion2, nivel2;
+                                String lugar, descripcion, tipo, detective1, nombre, descripcionevidencia, nivelevidencia;
+                                lugar = (JOptionPane.showInputDialog("Ingrese Lugar del crimen: "));
+                                descripcion = (JOptionPane.showInputDialog("Describa el caso: "));
+                                tipo = (JOptionPane.showInputDialog("Ingrese el tipo de delito \n (Homicidio \n ,Robo \n ,Secuestro \n ,Violacion \n) "));
+                                detective1 = (JOptionPane.showInputDialog("Ingrese el detective: "));
+                                estado = (JOptionPane.showInputDialog("Ingrese el estado del crimen \n (Procesado \n, Resuelto \n) "));
+                                nombre = (JOptionPane.showInputDialog("Ingrese nombre de la evidencia: "));
+                                descripcionevidencia = (JOptionPane.showInputDialog("Describa la evidencia: "));
+                                nivelevidencia = (JOptionPane.showInputDialog("Ingrese nivel de evidencia: "));
+                                lista2.add(new Casos(lugar, descripcion, tipo, detective1, estado));
+                                lista2.add(new Evidencia(nombre, descripcionevidencia, nivelevidencia));
+                            }
+                            if (opcion1.equalsIgnoreCase("c")) {
+                                int pos1 = Integer.parseInt(
+                                        JOptionPane.showInputDialog("Ingrese la Posicion del Caso: "));
+                                String lugar, descripcion, tipo, detec;
                                 lugar = (JOptionPane.showInputDialog("Ingrese Lugar: "));
                                 descripcion = (JOptionPane.showInputDialog("Ingrese Descripcion del Caso: "));
                                 tipo = (JOptionPane.showInputDialog("Ingrese el Tipo de Caso[Homicidio,Robo,Secuestro,Violacion]: "));
                                 detec = (JOptionPane.showInputDialog("Ingrese el Detective a Cargo: "));
                                 estado = (JOptionPane.showInputDialog("Ingrese el Estado del Caso[Proceso, Resuelto]: "));
-//                                int evi=Integer.parseInt((JOptionPane.showInputDialog("Cuantos evidencias va a ingresar?: ")));
-                                nombre = (JOptionPane.showInputDialog("Ingrese Nombre de Evidencia: "));
-                                descripcion2 = (JOptionPane.showInputDialog("Ingrese Descripcion de Evidencia: "));
-                                nivel2 = (JOptionPane.showInputDialog("Ingrese Nivel de Evidencia: "));
-                                lista2.add(new Casos(lugar, descripcion, tipo, detec, estado));
-                                lista2.add(new Evidencia(nombre, descripcion2, nivel2));
-                            }
-                            if (opcion1.equalsIgnoreCase("c")) {
-
+                                ((Casos) lista2.get(pos1)).setLugar(lugar);
+                                ((Casos) lista2.get(pos1)).setDescripcion(descripcion);
+                                ((Casos) lista2.get(pos1)).setTipo_hom(tipo);
+                                ((Casos) lista2.get(pos1)).setDetec(detec);
+                                ((Casos) lista2.get(pos1)).setEstado(estado);
                             }
                             if (opcion1.equalsIgnoreCase("d")) {
 
@@ -146,14 +157,13 @@ public class JavaApplication15 {
                             if (opcion1.equalsIgnoreCase("g")) {
 
                             }
-
                         }
                     }
-
-                    if (opcion.equalsIgnoreCase("5")) {
-                        System.exit(0);
-                    }
                 }
+            }
+            
+            if (opcion.equalsIgnoreCase("5")) {
+                System.exit(0);
             }
         }
     }
