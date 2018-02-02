@@ -107,11 +107,11 @@ public class JavaApplication15 {
                                     + "g- Log Out\n");
 
                             if (opcion1.equalsIgnoreCase("a")) {
-                                String hola = "";
+                                String hola = " ";
                                 for (Object t : lista) {
                                     if (t instanceof Detectives) {
                                         hola += lista.indexOf(t);
-                                        hola += t + "\n";
+                                        hola += t + " \n";
                                     }
                                 }
                                 JOptionPane.showMessageDialog(null, hola);
@@ -145,9 +145,17 @@ public class JavaApplication15 {
                                 ((Casos) lista2.get(pos1)).setDetec(detec);
                                 ((Casos) lista2.get(pos1)).setEstado(estado);
                             }
-                            if (opcion1.equalsIgnoreCase("d")) {
 
+                            if (opcion1.equalsIgnoreCase("d")) {
+                                String lol = "";
+                                for (Object t : lista2) {
+                                    if (t instanceof Casos) {
+                                        lol += lista2.indexOf(t) + " " + ((Casos) t) + "\n";
+                                    }
+                                }
+                                JOptionPane.showMessageDialog(null, lol);
                             }
+
                             if (opcion1.equalsIgnoreCase("e")) {
 
                             }
@@ -161,7 +169,7 @@ public class JavaApplication15 {
                     }
                 }
             }
-            
+
             if (opcion.equalsIgnoreCase("5")) {
                 System.exit(0);
             }
