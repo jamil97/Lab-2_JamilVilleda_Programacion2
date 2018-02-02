@@ -43,7 +43,7 @@ public class JavaApplication15 {
                 contra = JOptionPane.showInputDialog("Ingrese su nueva contra: ");
                 lista.add(new Detectives(nombre, edad, lugar, labor, level, user, contra));
             }
-            
+
             if (opcion.equalsIgnoreCase("2")) {
                 int parametro = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un espacio a modificar: \n"
                         + "0- Nombre: \n"
@@ -84,19 +84,19 @@ public class JavaApplication15 {
                     }
                 }
             }
-            
+
             if (opcion.equalsIgnoreCase("3")) {
                 int p = Integer.parseInt(JOptionPane.showInputDialog("Posicion de detective a eliminar"));
                 lista.remove(p);
             }
-            
+
             if (opcion.equalsIgnoreCase("4")) {
                 String user1 = (JOptionPane.showInputDialog("Ingrese su Usuario: "));
                 String contra1 = (JOptionPane.showInputDialog("Ingrese su Contraseña: "));
                 for (int i = 0; i < lista.size(); i++) {
                     if (lista.get(i).getUser().equals(user1) && lista.get(i).getContra().equals(contra1)) { //Validacion de que el usuario este
                         String opcion1 = " ";
-                        while (!opcion1.equalsIgnoreCase("i")) { //Valida que haga log out
+                        while (!opcion1.equalsIgnoreCase("g")) { //Valida que haga log out
                             opcion1 = JOptionPane.showInputDialog(""
                                     + "a- Listar todos sus Datos\n"
                                     + "b- Registar sus casos\n"
@@ -104,11 +104,56 @@ public class JavaApplication15 {
                                     + "d- Listar sus Casos\n"
                                     + "e- Enviar Mensaje\n"
                                     + "f- Listar Mensajes\n"
-                                    + "i- Log Out\n");
-            }
-            
-            if (opcion.equalsIgnoreCase("5")) {
-                System.exit(0);
+                                    + "g- Log Out\n");
+
+                            if (opcion1.equalsIgnoreCase("a")) {
+                                String hola = "";
+                                for (Object t : lista) {
+                                    if (t instanceof Detectives) {
+                                        hola += lista.indexOf(t);
+                                        hola += t + "\n";
+                                    }
+                                }
+                                JOptionPane.showMessageDialog(null, hola);
+                            }
+
+                            if (opcion1.equalsIgnoreCase("b")) {
+                                String lugar, descripcion, tipo, detec, nombre, descripcion2, nivel2;
+                                lugar = (JOptionPane.showInputDialog("Ingrese Lugar: "));
+                                descripcion = (JOptionPane.showInputDialog("Ingrese Descripcion del Caso: "));
+                                tipo = (JOptionPane.showInputDialog("Ingrese el Tipo de Caso[Homicidio,Robo,Secuestro,Violacion]: "));
+                                detec = (JOptionPane.showInputDialog("Ingrese el Detective a Cargo: "));
+                                estado = (JOptionPane.showInputDialog("Ingrese el Estado del Caso[Proceso, Resuelto]: "));
+//                                int evi=Integer.parseInt((JOptionPane.showInputDialog("Cuantos evidencias va a ingresar?: ")));
+                                nombre = (JOptionPane.showInputDialog("Ingrese Nombre de Evidencia: "));
+                                descripcion2 = (JOptionPane.showInputDialog("Ingrese Descripcion de Evidencia: "));
+                                nivel2 = (JOptionPane.showInputDialog("Ingrese Nivel de Evidencia: "));
+                                lista2.add(new Casos(lugar, descripcion, tipo, detec, estado));
+                                lista2.add(new Evidencia(nombre, descripcion2, nivel2));
+                            }
+                            if (opcion1.equalsIgnoreCase("c")) {
+
+                            }
+                            if (opcion1.equalsIgnoreCase("d")) {
+
+                            }
+                            if (opcion1.equalsIgnoreCase("e")) {
+
+                            }
+                            if (opcion1.equalsIgnoreCase("f")) {
+
+                            }
+                            if (opcion1.equalsIgnoreCase("g")) {
+
+                            }
+
+                        }
+                    }
+
+                    if (opcion.equalsIgnoreCase("5")) {
+                        System.exit(0);
+                    }
+                }
             }
         }
     }
