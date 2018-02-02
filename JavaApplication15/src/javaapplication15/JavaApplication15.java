@@ -26,11 +26,11 @@ public class JavaApplication15 {
         ArrayList lista2 = new ArrayList();
         while (!opcion.equalsIgnoreCase("f")) {
             opcion = JOptionPane.showInputDialog("Bienvenido al sistema usuario! Porfavor haga una eleccion: \n"
-                    + "1- Agregar un detective al archivo."
-                    + "2- Modificar un detective existente."
-                    + "3- Eliminar un detective del sistema."
-                    + "4- Hacer LogIn."
-                    + "5- Salir del sistema.");
+                    + "1- Agregar un detective al archivo. \n"
+                    + "2- Modificar un detective existente. \n"
+                    + "3- Eliminar un detective del sistema. \n"
+                    + "4- Hacer LogIn. \n"
+                    + "5- Salir del sistema. \n");
             if (opcion.equalsIgnoreCase("1")) {
                 String nombre, lugar, user, contra;
                 int edad, labor, level;
@@ -43,15 +43,16 @@ public class JavaApplication15 {
                 contra = JOptionPane.showInputDialog("Ingrese su nueva contra: ");
                 lista.add(new Detectives(nombre, edad, lugar, labor, level, user, contra));
             }
+            
             if (opcion.equalsIgnoreCase("2")) {
                 int parametro = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un espacio a modificar: \n"
-                        + "\n 0- Nombre"
-                        + "\n 1- Edad: "
-                        + "\n 2- Nacionalidad:"
-                        + "\n 3- Tiempo laborando:"
-                        + "\n 4- Nivel administrativo:"
-                        + "\n 5- Usuario: "
-                        + "\n 6- Contra"));
+                        + "0- Nombre: \n"
+                        + "1- Edad: \n"
+                        + "2- Nacionalidad: \n"
+                        + "3- Tiempo laborando: \n"
+                        + "4- Nivel administrativo: \n"
+                        + "5- Usuario: \n"
+                        + "6- Contra: \n"));
                 if (parametro >= 0 && parametro < lista.size() && lista.get(parametro) instanceof Detectives) {
                     if (parametro == 0) {
                         String nombre = JOptionPane.showInputDialog("Nuevo nombre");
@@ -62,19 +63,19 @@ public class JavaApplication15 {
                         ((Detectives) lista.get(parametro)).setEdad(edad);
                     }
                     if (parametro == 2) {
-                       String nacion = JOptionPane.showInputDialog("Ingrese su nueva nacionalidad porfavor: ");
+                        String nacion = JOptionPane.showInputDialog("Ingrese su nueva nacionalidad porfavor: ");
                         ((Detectives) lista.get(parametro)).setLugar(nacion);
                     }
                     if (parametro == 3) {
-                       int laborando = Integer.parseInt(JOptionPane.showInputDialog("Porfavor ingrese el tiempo trabajando: "));
+                        int laborando = Integer.parseInt(JOptionPane.showInputDialog("Porfavor ingrese el tiempo trabajando: "));
                         ((Detectives) lista.get(parametro)).setEdad(laborando);
                     }
                     if (parametro == 4) {
-                         int nivel = Integer.parseInt(JOptionPane.showInputDialog("Porfavor ingrese su nivel ejecutivo: "));
+                        int nivel = Integer.parseInt(JOptionPane.showInputDialog("Porfavor ingrese su nivel ejecutivo: "));
                         ((Detectives) lista.get(parametro)).setEdad(nivel);
                     }
                     if (parametro == 5) {
-                       String usuario = JOptionPane.showInputDialog("Ingrese su nuevo username: ");
+                        String usuario = JOptionPane.showInputDialog("Ingrese su nuevo username: ");
                         ((Detectives) lista.get(parametro)).setNombre(usuario);
                     }
                     if (parametro == 6) {
@@ -83,16 +84,32 @@ public class JavaApplication15 {
                     }
                 }
             }
+            
             if (opcion.equalsIgnoreCase("3")) {
-
+                int p = Integer.parseInt(JOptionPane.showInputDialog("Posicion de detective a eliminar"));
+                lista.remove(p);
             }
+            
             if (opcion.equalsIgnoreCase("4")) {
-
+                String user1 = (JOptionPane.showInputDialog("Ingrese su Usuario: "));
+                String contra1 = (JOptionPane.showInputDialog("Ingrese su Contraseña: "));
+                for (int i = 0; i < lista.size(); i++) {
+                    if (lista.get(i).getUser().equals(user1) && lista.get(i).getContra().equals(contra1)) { //Validacion de que el usuario este
+                        String opcion1 = " ";
+                        while (!opcion1.equalsIgnoreCase("i")) { //Valida que haga log out
+                            opcion1 = JOptionPane.showInputDialog(""
+                                    + "a- Listar todos sus Datos\n"
+                                    + "b- Registar sus casos\n"
+                                    + "c- Modificar sus casos\n"
+                                    + "d- Listar sus Casos\n"
+                                    + "e- Enviar Mensaje\n"
+                                    + "f- Listar Mensajes\n"
+                                    + "i- Log Out\n");
             }
+            
             if (opcion.equalsIgnoreCase("5")) {
                 System.exit(0);
             }
         }
     }
-}
 }
